@@ -1,33 +1,26 @@
+import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./layout/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import AddUser from "./Users/AddUser";
+import EditUser from "./Users/EditUser";
+import ViewUser from "./Users/ViewUsers";
 
-import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './Layout/Navbar';
-import Home from './Pages/Home';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import AddUser from './Users/AddUser';
 
 function App() {
-  const [users,setUsers]=useState([])
-  useEffect(()=>{
-    loadUsers();
-  },[]);
-  const loadUsers=async()=>{
-    const result= await axios.get("http://localhost:8080/");
-    setUsers(result.data);
-  }
   return (
     <div className="App">
       <Router>
-        <Navbar/>
+        <Navbar />
+
         <Routes>
-          <Route exact path="/" element={<Home users={users}/>}/>
-          <Route exact path="/adduser" element={<AddUser/>}/>
+        <Route exact path="/" element={<Home/>} />
+        <Route exact path="/adduser" element={<AddUser/>}/>
+        <Route exact path="/edituser/:id" element={<EditUser />} />
+        <Route exact path="/viewuser/:id" element={<ViewUser />} />
         </Routes>
-     
       </Router>
-      
     </div>
   );
 }
