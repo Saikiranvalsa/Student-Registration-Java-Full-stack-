@@ -48,7 +48,7 @@ Setup Steps
 
 Clone the repository
 
-git clone https://github.com/your-username/student-registration-system.git
+git clone (https://github.com/Saikiranvalsa/Student-Registration-Java-Full-stack-.git)
 cd student-registration-system
 
 
